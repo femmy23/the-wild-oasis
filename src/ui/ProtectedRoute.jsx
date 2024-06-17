@@ -16,7 +16,7 @@ export default function ProtectedRoute({ children }) {
   const navigate = useNavigate();
 
   //1 Load the Authenticated User
-  const { user, isLoading, isAuthenticated } = UseUser();
+  const { isLoading, isAuthenticated } = UseUser();
 
   //2 If no authenticated user redirect to Login form
   useEffect(
@@ -27,6 +27,7 @@ export default function ProtectedRoute({ children }) {
   );
 
   //3 While Loading Show Spinner
+
   if (isLoading)
     return (
       <FullPage>
@@ -36,5 +37,5 @@ export default function ProtectedRoute({ children }) {
 
   //If User display appLayout
 
-  return children;
+  if (isAuthenticated) return children;
 }
