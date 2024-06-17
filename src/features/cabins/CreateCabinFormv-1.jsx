@@ -1,14 +1,22 @@
-import styled from "styled-components";
+import styled, { isStyledComponent } from "styled-components";
 import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { CreateCabin } from "../../services/apiCabin";
 import { toast } from "react-hot-toast";
-import Input from "../../ui/Input";
+// import Input from "../../ui/Input";
 import Form from "../../ui/Form";
 import Button from "../../ui/Button";
 import FileInput from "../../ui/FileInput";
 import Textarea from "../../ui/Textarea";
 import FormRow from "../../ui/FormRow";
+
+const Input = isStyledComponent.input`
+  border: 1px solid var(--color-grey-300);
+  background-color: var(--color-grey-0);
+  border-radius: var(--border-radius-sm);
+  padding: 0.8rem 1.2rem;
+  box-shadow: var(--shadow-sm);
+`;
 
 function CreateCabinForm() {
   const { register, handleSubmit, reset, getValues, formState } = useForm();
