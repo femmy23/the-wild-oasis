@@ -16,7 +16,7 @@ const Input = styled.input`
 
 function LoginForm() {
   const [email, setEmail] = useState("femi@uk.co");
-  const [password, setPassword] = useState("12345");
+  const [password, setPassword] = useState("12345678");
 
   const { login, isLoading } = useLogin();
 
